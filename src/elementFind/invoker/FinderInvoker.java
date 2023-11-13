@@ -38,7 +38,7 @@ public class FinderInvoker {
         if (!commandHistory.isEmpty()) {
             // 스택에서 직전 명령어 가져오기
             IFinderCommand lastCommand = commandHistory.pop();
-            // undo 실행
+            // 직전 명령어의 undo 실행
             return lastCommand.undo();
         } else {   // Commamnd 스택이 비었을 경우, 즉 이전에 실행된 명령어가 없을 경우
             // 빈 리스트 반환

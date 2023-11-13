@@ -47,10 +47,13 @@ public class Main {
             System.out.print("Please enter command [e.g. number | name | symbol | weight | period | group | phase | undo]: ");
             String commandName = UserInput.getCommandString();
 
+            // 입력받은 명령이 "undo"일 경우
             if (commandName.equalsIgnoreCase("undo")) {
-                // undo 실행
+                // invoker의 undo 실행 -> 커맨드 패턴
+                // 이전 명령어 스택에서 꺼내 undo를 실행한다.
                 foundList = invoker.undo();
 
+                // undo()의 결과로 빈 리스트가 반환되었다면 다시 deepCopy
                 if (foundList == null || foundList.isEmpty()) {
                     foundList = deepCopy(peList);
                 }
@@ -59,9 +62,8 @@ public class Main {
                 // invoker에 command 객체 설정
                 invoker.setCommand(database.getCommand(commandName));
 
-                // execute
+                // invoker의 execute()를 실행해 설정한 command 객체의 execute()를 실행시켜준다. -> 커맨드 패턴
                 foundList = invoker.execute(foundList);
-
             }
 
             // 출력

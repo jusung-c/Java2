@@ -83,6 +83,7 @@ public class UserInput {
         }
     }
 
+    // exit 입력받으면 true를, 그 외는 false를 리턴한다.
     public static boolean getExitKey() throws IOException {
         System.out.print("계속하고 싶다면 Enter를, 종료하고 싶다면 'exit'을 입력해주세요. ");
         // 입력은 받아 공백 제거
@@ -93,6 +94,7 @@ public class UserInput {
         return exit.equalsIgnoreCase(exitInput);
     }
 
+    // min~max 범위의 int 사용자 입력 받기
     public static int getIntegerBetween(int min, int max) {
         int num;
 
@@ -114,6 +116,7 @@ public class UserInput {
         return num;
     }
 
+    // min~max 범위의 int[] 사용자 입력 받기
     public static int[] getIntegerArrayBetween(int min, int max) {
         int[] numbers;
 
@@ -145,6 +148,7 @@ public class UserInput {
         }
     }
 
+    // 실수 배열 받기
     public static double[] getDoubleArray() {
         double[] numbers;
 

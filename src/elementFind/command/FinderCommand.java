@@ -10,6 +10,7 @@ import java.util.List;
 public abstract class FinderCommand implements IFinderCommand {
     protected List<PeriodicElement> prevElements;
 
+    // undo(): 이전의 prevElements를 리턴해준다.
     @Override
     public List<PeriodicElement> undo() {
         return prevElements;
